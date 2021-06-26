@@ -12,14 +12,15 @@
 
   let textColor = "#00ff00"
   let textFont = "Verdana"
-  let textFontSize = 50
+  let textFontSize = 200
   let textContent = "A"
 
   $( document ).ready(function() {
     console.log( "ready!" );
     changeColor(textColor)
     changeText(textContent)
-    changeFont(textFont, textFontSize)
+    changeFontSize(textFontSize)
+    changeFont(textFont)
   });
 
   function changeColor(color){
@@ -28,8 +29,10 @@
   function changeText(text){
     $("#mainDiv").text(text);
   }
-  function changeFont(fontName, size) {
-    $('#mainDiv').css("font-family", fontName);
+  function changeFontSize(size) {
     $('#mainDiv').css("font-size", size + "px");
+  }
+  function changeFont(fontName) {
+    $('#mainDiv').css("font-family", fontName);
   }
 </script>

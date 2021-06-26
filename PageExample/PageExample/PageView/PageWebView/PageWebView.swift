@@ -12,6 +12,16 @@ class PageWebView: UIView {
     
     @IBOutlet weak var webview: WKWebView!
     
+    var item = PageItem(text: "", color: ""){
+        didSet{
+            if self.didLoad {
+                self.changeText(text: self.item.text)
+                self.changeColor(color: self.item.color)
+            }
+        }
+    }
+    var didLoad = false
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.configureWebview()
@@ -20,7 +30,6 @@ class PageWebView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
     }
     
     func configureWebview(){
@@ -33,6 +42,7 @@ class PageWebView: UIView {
         let url = Bundle.main.url(forResource: "PageWebViewSource", withExtension: "html", subdirectory: "PageWebViewSource")!
         self.webview.loadFileURL(url, allowingReadAccessTo: url)
     }
+    
 }
 
 extension PageWebView {
@@ -57,7 +67,55 @@ extension PageWebView: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("\(self.className) \(#function)")
+        
+        self.didLoad = true
+        // self.changeFontSize(size: 200)
+        
+        self.changeText(text: self.item.text)
+        self.changeColor(color: self.item.color)
+        
     }
+    
+}
+
+
+extension PageWebView {
+    func changeText(text: String){
+        print("\(self.className) \(#function)")
+        let str = "changeText('\(text)')"
+        self.webview.evaluateJavaScript(str) { [weak self] (response, error) in
+            guard let `self` = self else { return }
+            if error != nil {
+                print("\(self.className) \(#function): \n\n\(error.debugDescription) \n\n")
+            }
+//            self.didShowChar = true
+        }
+    }
+    
+    func changeColor(color: String){
+        print("\(self.className) \(#function)")
+        let str = "changeColor('\(color)')"
+        self.webview.evaluateJavaScript(str) { [weak self] (response, error) in
+            guard let `self` = self else { return }
+            if error != nil {
+                print("\(self.className) \(#function): \n\n\(error.debugDescription) \n\n")
+            }
+//            self.didShowChar = true
+        }
+    }
+    
+    func changeFontSize(size: Int){
+        print("\(self.className) \(#function)")
+        let str = "changeFontSize('\(size)')"
+        self.webview.evaluateJavaScript(str) { [weak self] (response, error) in
+            guard let `self` = self else { return }
+            if error != nil {
+                print("\(self.className) \(#function): \n\n\(error.debugDescription) \n\n")
+            }
+//            self.didShowChar = true
+        }
+    }
+    
     
 }
 

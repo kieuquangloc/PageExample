@@ -9,15 +9,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="696" height="666"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PageView" customModule="PageExample" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="958" height="790"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7qm-Dg-yhH">
-                    <rect key="frame" x="0.0" y="0.0" width="696" height="666"/>
+                    <rect key="frame" x="0.0" y="0.0" width="958" height="790"/>
                     <subviews>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="k0f-Md-h3A">
-                            <rect key="frame" x="0.0" y="0.0" width="696" height="666"/>
+                            <rect key="frame" x="0.0" y="0.0" width="958" height="790"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fAa-UW-A2L">
                                 <size key="itemSize" width="128" height="128"/>
@@ -44,7 +44,10 @@
                 <constraint firstAttribute="trailing" secondItem="7qm-Dg-yhH" secondAttribute="trailing" id="sO4-nO-Ucj"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-92.753623188405811" y="7.3660714285714279"/>
+            <connections>
+                <outlet property="clv" destination="k0f-Md-h3A" id="VNm-Ou-00w"/>
+            </connections>
+            <point key="canvasLocation" x="97.101449275362327" y="48.883928571428569"/>
         </view>
     </objects>
     <resources>
