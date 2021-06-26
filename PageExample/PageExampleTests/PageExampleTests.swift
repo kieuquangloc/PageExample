@@ -2,7 +2,7 @@
 //  PageExampleTests.swift
 //  PageExampleTests
 //
-//  Created by QuangLoc on 26/06/2021.
+//  Created by KieuQuangLoc on 26/06/2021.
 //
 
 import XCTest
