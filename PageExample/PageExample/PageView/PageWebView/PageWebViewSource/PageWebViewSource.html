@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div id="mainDiv" class="center-screen" onclick=""></div>
+  </body>
+  </html>
+
+<script>
+
+  let textColor = "#00ff00"
+  let textFont = "Verdana"
+  let textFontSize = 50
+  let textContent = "A"
+
+  $( document ).ready(function() {
+    console.log( "ready!" );
+    changeColor(textColor)
+    changeText(textContent)
+    changeFont(textFont, textFontSize)
+  });
+
+  function changeColor(color){
+    $("#mainDiv").css("color", color);
+  }
+  function changeText(text){
+    $("#mainDiv").text(text);
+  }
+  function changeFont(fontName, size) {
+    $('#mainDiv').css("font-family", fontName);
+    $('#mainDiv').css("font-size", size + "px");
+  }
+</script>
